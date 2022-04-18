@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Reflection?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<HBox fx:id="hbox" onMouseClicked="#clickImagess" prefHeight="176.0" prefWidth="330.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllor.item2controllor">
+    <children>
+        <ImageView fx:id="imageViewId" fitHeight="138.0" fitWidth="111.0" pickOnBounds="true" preserveRatio="true">
+            <HBox.margin>
+                <Insets bottom="7.0" left="8.0" top="6.0" />
+            </HBox.margin>
+            <effect>
+                <Reflection />
+            </effect></ImageView>
+        <VBox alignment="CENTER_LEFT" prefHeight="151.0" prefWidth="189.0" spacing="10.0">
+            <children>
+                <Label fx:id="labelN" prefHeight="66.0" prefWidth="189.0" text="VDI&#10; DOF">
+                    <font>
+                        <Font name="Berlin Sans FB Bold" size="25.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets top="-30.0" />
+                    </VBox.margin>
+                </Label>
+                <Label prefHeight="20.0" prefWidth="187.0" text="Price:" textFill="#6b3636">
+                    <font>
+                        <Font name="Bodoni MT Bold" size="17.0" />
+                    </font></Label>
+                <Label fx:id="labelDate" layoutX="10.0" layoutY="62.0" prefHeight="20.0" prefWidth="95.0" text="dad dad dad " textFill="#e11a59">
+                    <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets left="100.0" />
+                    </VBox.margin>
+                </Label>
+                <Rating layoutX="10.0" layoutY="75.0" partialRating="true" rating="2.5" />
+            </children>
+        </VBox>
+    </children>
+    <cursor>
+        <Cursor fx:constant="HAND" />
+    </cursor>
+</HBox>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="javax.mail-1.6.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/dependencies/javax.mail-1.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dependencies/mysql-connector-java-8.0.23.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dependencies/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dependencies/controlsfx-8.40.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

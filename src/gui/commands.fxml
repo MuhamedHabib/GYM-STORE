@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="582.0" prefWidth="1164.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllor.commandsControllor">
+    <children>
+        <AnchorPane layoutX="914.0" prefHeight="582.0" prefWidth="247.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="914.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <Button layoutX="24.0" layoutY="387.0" mnemonicParsing="false" onAction="#Add_users" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20 20 20 20; -fx-background-color: #333645;" text="Add" textFill="#f8f8f8">
+               <font>
+                  <Font name="Bell MT" size="20.0" />
+               </font></Button>
+                <Button layoutX="24.0" layoutY="434.0" mnemonicParsing="false" onAction="#Edit" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20 20 20 20; -fx-background-color: #333645;" text="Update" textFill="#f8f8f8">
+               <font>
+                  <Font name="Bell MT" size="20.0" />
+               </font></Button>
+                <Button layoutX="24.0" layoutY="483.0" mnemonicParsing="false" onAction="#Delete" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20 20 20 20; -fx-background-color: #333645;" text="Delete" textFill="#f8f8f8">
+               <font>
+                  <Font name="Bell MT" size="20.0" />
+               </font></Button>
+                <TextField fx:id="txt_fn" layoutX="24.0" layoutY="60.0" onKeyReleased="#search_user" prefHeight="30.0" prefWidth="180.0" promptText="fname" style="-fx-background-radius: 20 20 20 20;" />
+                <TextField fx:id="txt_ln" layoutX="24.0" layoutY="110.0" prefHeight="30.0" prefWidth="180.0" promptText="lname" style="-fx-background-radius: 20 20 20 20;" />
+                <TextField fx:id="txt_mail" layoutX="24.0" layoutY="159.0" prefHeight="30.0" prefWidth="180.0" promptText="mail" style="-fx-background-radius: 20 20 20 20;" />
+                <TextField fx:id="txt_ville" layoutX="24.0" layoutY="207.0" prefHeight="30.0" prefWidth="180.0" promptText="city" style="-fx-background-radius: 20 20 20 20;" />
+                <TextField fx:id="txt_id" layoutX="24.0" layoutY="22.0" prefHeight="23.0" prefWidth="180.0" promptText="postalcode" style="-fx-background-radius: 20 20 20 20;" text="id" />
+            <Button fx:id="button" layoutX="24.0" layoutY="333.0" mnemonicParsing="false" onAction="#Filechooser" prefHeight="40.0" prefWidth="179.0" style="-fx-background-color: Blue;" text="Face validation" textFill="#f8f8f8" AnchorPane.leftAnchor="24.0">
+               <font>
+                  <Font name="Bell MT" size="20.0" />
+               </font>
+            </Button>
+            <TextField fx:id="txt_postcode" layoutX="24.0" layoutY="253.0" prefHeight="30.0" prefWidth="180.0" promptText="postcode" style="-fx-background-radius: 20 20 20 20;" />
+            <TextField fx:id="txt_adresse" layoutX="24.0" layoutY="294.0" prefHeight="30.0" prefWidth="180.0" promptText="adresse" style="-fx-background-radius: 20 20 20 20;" />
+            </children>
+        </AnchorPane>
+        <TableView fx:id="table_commands" layoutX="263.0" layoutY="170.0" onMouseClicked="#getSelected" prefHeight="356.0" prefWidth="669.0" styleClass="column-header" stylesheets="@../public/css/tableview.css">
+            <columns>
+                <TableColumn fx:id="col_id" prefWidth="29.0" text="ID" />
+                <TableColumn fx:id="fname" prefWidth="59.20001220703125" text="nom_c" />
+                <TableColumn fx:id="lname" prefWidth="120.79998779296875" text="prenom_c" />
+                <TableColumn fx:id="email" prefWidth="83.20001220703125" text="email" />
+                <TableColumn fx:id="ville" prefWidth="90.20001220703125" text="ville" />
+            <TableColumn fx:id="codepostal" prefWidth="60.5999755859375" text="codepostal" />
+            <TableColumn fx:id="adresse" prefWidth="65.5999755859375" text="adresse" />
+            <TableColumn fx:id="face" prefWidth="72.00003662109373" text="face" />
+            </columns>
+        </TableView>
+        <TextField fx:id="filterField" alignment="CENTER" layoutX="682.0" layoutY="22.0" promptText="Search" style="-fx-background-color: #e85f5f; -fx-background-radius: 20 20 20 20;">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></TextField>
+      <Pane layoutX="410.0" layoutY="59.0" prefHeight="3.0" prefWidth="523.0" style="-fx-background-color: black;" />
+      <ImageView fx:id="imageView" fitHeight="118.0" fitWidth="154.0" layoutX="254.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true" />
+      <AnchorPane layoutY="529.0" prefHeight="61.0" prefWidth="1164.0" style="-fx-background-color: #333645;">
+         <children>
+            <Button fx:id="backing" layoutX="846.0" layoutY="10.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="52.0" style="-fx-background-radius: 20 20 20 20;" text="Back" />
+            <Button fx:id="toaddfile" layoutX="390.0" layoutY="10.0" mnemonicParsing="false" onAction="#addAttachment" prefHeight="32.0" prefWidth="92.0" style="-fx-background-radius: 20 20 20 20;" text="products" />
+         </children>
+      </AnchorPane>
+      <VBox layoutX="-2.0" layoutY="1.0" prefHeight="528.0" prefWidth="253.0" style="-fx-background-color: #333645;">
+         <children>
+            <Label prefHeight="70.0" prefWidth="218.0" text="Admin Panel" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="76.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/ben-affleck.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <AnchorPane prefHeight="265.0" prefWidth="287.0">
+               <children>
+                  <JFXButton fx:id="btn_offre" prefHeight="45.0" prefWidth="208.0" text="Home" textFill="#e85f5f" />
+                  <JFXButton fx:id="btn_sugg" layoutY="81.0" prefHeight="45.0" prefWidth="208.0" text="-----" textFill="#f5efef" />
+                  <JFXButton fx:id="btn_feed" layoutY="114.0" prefHeight="45.0" prefWidth="208.0" text="------" textFill="#f2f0f0" />
+                  <JFXButton fx:id="btn_home" layoutY="159.0" prefHeight="39.0" prefWidth="208.0" text="users" textFill="#f2f0f0" />
+                  <JFXButton fx:id="btn_chart" layoutX="-1.0" layoutY="47.0" prefHeight="45.0" prefWidth="208.0" text="-----" textFill="#f5efef" />
+               </children>
+               <VBox.margin>
+                  <Insets top="100.0" />
+               </VBox.margin>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Button fx:id="showRelatedFiles" layoutX="720.0" layoutY="87.0" mnemonicParsing="false" onAction="#showHandleBtn" prefHeight="40.0" prefWidth="180.0" style="-fx-background-radius: 20 20 20 20; -fx-background-color: #333645;" text="Store" textFill="#f8f8f8">
+         <font>
+            <Font name="Bell MT" size="20.0" />
+         </font>
+      </Button>
+      <FontAwesomeIconView fill="#333645" glyphName="HOME" layoutX="902.0" layoutY="117.0" size="30" />
+      <FontAwesomeIconView fill="#907878" glyphName="SEARCH" layoutX="683.0" layoutY="46.0" size="22" text="" />
+    </children>
+</AnchorPane>
