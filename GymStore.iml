@@ -12,5 +12,6 @@
     <orderEntry type="library" name="dependencies2" level="project" />
     <orderEntry type="library" name="jfoenix-8.0.10" level="project" />
     <orderEntry type="library" name="javax.mail-1.6.2" level="project" />
+    <orderEntry type="library" name="AnimateFX-1.2.1" level="project" />
   </component>
 </module>

@@ -25,6 +25,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class AddController implements Initializable {
 
@@ -55,13 +57,21 @@ public class AddController implements Initializable {
     private boolean update;
     int ProduitId;
 
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
+
+
     public void AddB(javafx.scene.input.MouseEvent mouseEvent) {
+
+
+
         connection = DbConnect.getConnect();
+        if (validatePrice()&&validatetitle()){
         String title = ftiltlefield.getText();
 
         String price = fprice.getText();
@@ -78,7 +88,7 @@ public class AddController implements Initializable {
             insert();
             //CleanB();
 
-        }
+        }}
     }
 
 
@@ -174,6 +184,39 @@ public class AddController implements Initializable {
 
         Stage window =(Stage) clean.getScene().getWindow();
         window.setScene(new Scene(root, 1500, 1700));
+    }
+
+    private boolean validatetitle() {
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+        Matcher m = p.matcher(ftiltlefield.getText());
+        if (m.find() && m.group().equals(ftiltlefield.getText())) {
+            return true;
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validate Name hotel");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Enter Valid Product title");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
+
+    private boolean validatePrice(){
+        Pattern p = Pattern.compile("[1-9][0-9][0-9]+");
+        Matcher m = p.matcher(fprice.getText());
+        if(m.find() && m.group().equals(fprice.getText())){
+            return true;
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validate price");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Enter Valid price");
+            alert.showAndWait();
+
+            return false;
+        }
+
     }
 
 }

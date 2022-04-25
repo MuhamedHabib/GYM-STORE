@@ -38,6 +38,9 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class commandsControllor implements Initializable {
     public ImageView imageView;
     public Button user_button;
@@ -125,11 +128,74 @@ public class commandsControllor implements Initializable {
     ResultSet rs = null;
     PreparedStatement pst = null;
 
+    private boolean validateprenom(){
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+        Matcher m = p.matcher(txt_ln.getText());
+        if(m.find() && m.group().equals(txt_ln.getText())){
+            return true;
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validate your first name");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Enter Valid First Name");
+            alert.showAndWait();
 
+            return false;
+        }
+    }
+    private boolean validatenom(){
+        Pattern p = Pattern.compile("[a-zA-Z]+");
+        Matcher m = p.matcher(txt_fn.getText());
+        if(m.find() && m.group().equals(txt_fn.getText())){
+            return true;
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validate your last name");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Enter Valid Last Name");
+            alert.showAndWait();
 
+            return false;
+        }
+    }
+
+    private boolean Emailvalide(){
+        Pattern p = Pattern.compile( "^[a-zA-Z]+[a-zA-Z0-9\\._-]*[a-zA-Z0-9]@[a-zA-Z]+"
+                + "[a-zA-Z0-9\\._-]*[a-zA-Z0-9]+\\.[a-zA-Z]{2,4}$");
+        Matcher m = p.matcher(txt_mail.getText());
+        if(m.find() && m.group().equals(txt_mail.getText())){
+            return true;
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validate email");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Enter Valid email");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
+    private boolean validatePostCode(){
+        Pattern p = Pattern.compile("[1-9][1-9][0-9][0-9]");
+        Matcher m = p.matcher(txt_postcode.getText());
+        if(m.find() && m.group().equals(txt_postcode.getText())){
+            return true;
+        }else{
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Validate Post code");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Enter Valid Post Code");
+            alert.showAndWait();
+
+            return false;
+        }
+
+    }
     public void Add_users () throws SQLException {
 
-        if(txt_fn.getText().isEmpty()
+        if (validatenom()&&validateprenom()&&validatePostCode()&&Emailvalide()){
+
+            if(txt_fn.getText().isEmpty()
                 || txt_postcode.getText().isEmpty()
                 || txt_adresse.getText().isEmpty()
                 || txt_ln.getText().isEmpty()
@@ -155,7 +221,7 @@ public class commandsControllor implements Initializable {
         }
         /**********************************added*************************************/
 
-    }
+    }}
 
     //////// methode select users ///////
     @FXML
